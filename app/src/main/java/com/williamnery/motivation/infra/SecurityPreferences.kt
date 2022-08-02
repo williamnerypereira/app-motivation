@@ -1,4 +1,4 @@
-package com.williamnery.motivation
+package com.williamnery.motivation.infra
 
 import android.content.Context
 import android.content.SharedPreferences
