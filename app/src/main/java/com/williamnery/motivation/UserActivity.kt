@@ -13,8 +13,10 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_user)
+
+        // Deixar a criação dos elementos dessa forma
         binding = ActivityUserBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         binding.buttonSave.setOnClickListener(this)
 
@@ -30,6 +32,9 @@ class UserActivity : AppCompatActivity(), View.OnClickListener {
     private fun handleSave() {
         val name = binding.editName.text.toString()
         if (name != "") {
+
+            SecurityPreferences(this).storeString("USER_NAME", name)
+
             startActivity(Intent(this, MainActivity::class.java))
             finish() // Finaliza a tela
         } else {
