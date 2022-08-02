@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/William/Desktop/Android/Motivation/app/src/main/res/drawable/ic_happy.xml" value="0.1" />
+        <entry key="..\:/Users/William/Desktop/Android/Motivation/app/src/main/res/drawable/ic_sunny.xml" value="0.1" />
         <entry key="..\:/Users/William/Desktop/Android/Motivation/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/William/Desktop/Android/Motivation/app/src/main/res/layout/activity_user.xml" value="0.25" />
       </map>
