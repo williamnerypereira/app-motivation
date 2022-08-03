@@ -6,10 +6,17 @@ class MotivationConstants private constructor() {
         const val USER_NAME = "USER_NAME"
     }
 
-    object FILTER {
+    object PHRASEFILTER {
         const val ALL = 1
         const val HAPPY = 2
         const val SUNNY = 3
     }
+
+    object LANGUAGE {
+        const val PORTUGUESE = "pt"
+        const val ENGLISH = "en"
+        const val FRENCH = "fr"
+    }
+
 
 }

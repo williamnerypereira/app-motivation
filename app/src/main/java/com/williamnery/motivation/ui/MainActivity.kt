@@ -10,11 +10,12 @@ import com.williamnery.motivation.R
 import com.williamnery.motivation.data.Mock
 import com.williamnery.motivation.infra.SecurityPreferences
 import com.williamnery.motivation.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
-    private var categoryId = MotivationConstants.FILTER.ALL
+    private var categoryId = MotivationConstants.PHRASEFILTER.ALL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +70,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleNextPhrase() {
-        binding.textPhrase.text = Mock().getPhrase(categoryId)
+        // Captura o idioma do dispositivo (Locale.getDefault().language)
+        binding.textPhrase.text = Mock().getPhrase(categoryId, Locale.getDefault().language)
     }
 
     private fun handleFilter(id: Int) {
@@ -81,22 +83,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (id) {
             R.id.image_all -> {
                 binding.imageAll.setColorFilter(ContextCompat.getColor(this, R.color.white))
-                categoryId = MotivationConstants.FILTER.ALL
+                categoryId = MotivationConstants.PHRASEFILTER.ALL
             }
             R.id.image_happy -> {
                 binding.imageHappy.setColorFilter(ContextCompat.getColor(this, R.color.white))
-                categoryId = MotivationConstants.FILTER.HAPPY
+                categoryId = MotivationConstants.PHRASEFILTER.HAPPY
             }
             R.id.image_sunny -> {
                 binding.imageSunny.setColorFilter(ContextCompat.getColor(this, R.color.white))
-                categoryId = MotivationConstants.FILTER.SUNNY
+                categoryId = MotivationConstants.PHRASEFILTER.SUNNY
             }
         }
     }
 
     private fun handleUserName() {
         val name = SecurityPreferences(this).getString(MotivationConstants.KEY.USER_NAME)
-        binding.textUserName.text = "Olá, $name!"
+        val hello = getString(R.string.hello)
+        binding.textUserName.text = "$hello, $name!"
     }
 
 }
